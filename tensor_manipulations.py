@@ -18,9 +18,9 @@ print("\nReshaped Tensor (2, 3, 4):\n", reshaped_tensor.numpy())
 transposed_tensor = tf.transpose(reshaped_tensor, perm=[1, 0, 2])
 print("\nTransposed Tensor (3, 2, 4):\n", transposed_tensor.numpy())
 
-# 5. Broadcasting a smaller tensor (1, 4) to match larger tensor
-small_tensor = tf.constant([[1.0, 2.0, 3.0, 4.0]])  # Shape (1, 4)
-broadcasted_tensor = tf.broadcast_to(small_tensor, shape=(4, 6))  # Shape (4, 6)
+# 5. Broadcasting a smaller tensor (1, 6) to match larger tensor
+small_tensor = tf.constant([[1.0, 2.0, 3.0, 4.0, 5.0, 6.0]])  # Shape (1,6)
+broadcasted_tensor = tf.broadcast_to(small_tensor, shape=(4, 6))  # Shape (4,6)
 print("\nBroadcasted Tensor (4, 6):\n", broadcasted_tensor.numpy())
 
 # 6. Adding the tensors
@@ -31,6 +31,6 @@ print("\nTensor After Broadcasting and Addition:\n", added_tensor.numpy())
 explanation = """
 Broadcasting in TensorFlow automatically expands the smaller tensor's dimensions 
 to match the larger tensor's shape, allowing element-wise operations.
-Here, (1,4) expands to (4,6) by repeating its values across rows.
+Here, (1,6) expands to (4,6) by repeating its values across rows.
 """
 print(explanation)
